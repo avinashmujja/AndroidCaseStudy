@@ -60,8 +60,8 @@ class UserDetailsViewModel @Inject constructor(private val userDetailsUsecase: U
     fun fetchNextBatchUserUserDetails(loginName : String,selection: Int) {
         if(!isLoadMore.get()!! || pageCount == 1)
             return
-
         _loadMore.value = true
+        isLoadMore.set(false)
         viewModelScope.launch {
             try {
                 val userList = userDetailsUsecase.getUserDetailsByLoginName(pageCount,selection, loginName)

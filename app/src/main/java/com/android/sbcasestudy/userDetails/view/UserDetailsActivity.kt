@@ -1,8 +1,6 @@
 package com.android.sbcasestudy.userDetails.view
 
-import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +10,6 @@ import com.android.sbcasestudy.base.common.UsersCommonAdapter
 import com.android.sbcasestudy.base.common.itemClick
 import com.android.sbcasestudy.data.GitUser
 import com.android.sbcasestudy.databinding.ActivityUsersDetailsBinding
-import com.android.sbcasestudy.user.view.UserActivity
 import com.android.sbcasestudy.userDetails.vm.UserDetailsViewModel
 import com.android.sbcasestudy.utils.Utils
 import dagger.android.support.DaggerAppCompatActivity
@@ -41,18 +38,33 @@ class UserDetailsActivity : DaggerAppCompatActivity() ,
         viewDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_users_details)
         viewDataBinding.lifecycleOwner = this
         viewDataBinding.viewmodel = userDetailsViewModel
+        initData()
+        initRecyclerView()
+    }
+
+    private fun initData() {
         intent?.let {
             gitUser = intent.getParcelableExtra(Utils.USER)
             selection = intent.getIntExtra(Utils.SELECTION,0)
+
+            viewDataBinding.tvFollow.text = when(selection) {
+                Utils.FOLLOWING ->
+                    "Followers"
+                Utils.FOLLOWERS ->
+                    "Following"
+                else ->
+                    ""
+            }
+
             gitUser?.let {
+                viewDataBinding.user = it
                 it.login?.let { it ->
                     userDetailsViewModel.fetchUserDetails(it,selection)
                 }
             }
         }
-
-        initRecyclerView()
     }
+
     private fun initRecyclerView() {
         viewDataBinding?.let {
             val viewModel = viewDataBinding.viewmodel
@@ -78,10 +90,10 @@ class UserDetailsActivity : DaggerAppCompatActivity() ,
     }
 
     override fun onItemClick(gitUser: GitUser) {
-        val intent = Intent(this, UserActivity::class.java)
+        /*val intent = Intent(this, UserActivity::class.java)
         intent.apply {
             putExtra(Utils.USER,gitUser)
         }
-        startActivity(intent)
+        startActivity(intent)*/
     }
 }

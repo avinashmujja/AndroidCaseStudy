@@ -117,6 +117,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             tools:text="Avinash muzza"
+                            android:text="@{vm.data.name}"
                             android:textColor="@android:color/black"
                             android:textAlignment="center"/>
 
@@ -133,7 +134,7 @@
                     android:paddingTop="8dp"
                     android:text="@{vm.data.login}"
                     android:paddingBottom="8dp"/>
-                
+
                 <ImageView
                     android:id="@+id/img_company"
                     android:layout_width="wrap_content"
@@ -218,21 +219,22 @@
                     android:onClick="@{() -> callback.invokeUserDetails(vm.data,1)}"
                     app:layout_constraintBottom_toBottomOf="@+id/img_person">
 
-                <TextView
-                    android:id="@+id/tv_followers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:onClick="@{() -> callback.invokeUserDetails(vm.data,1)}"
-                    app:text="@{vm.data.followers.toString()}"
-                    tools:text="Avinahs Muzza"/>
+                    <TextView
+                        android:id="@+id/tv_followers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:paddingLeft="4dp"
+                        android:paddingRight="4dp"
+                        app:text="@{vm.data.followers.toString()}"
+                        tools:text="Avinahs Muzza"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:layout_marginLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="8dp"
                         android:text="Followers" />
 
                 </LinearLayout>
@@ -257,19 +259,22 @@
                     android:orientation="horizontal"
                     android:onClick="@{() -> callback.invokeUserDetails(vm.data,2)}">
 
-                <TextView
-                    android:id="@+id/tv_following"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:text="@{vm.data.following.toString()}"
-                    android:layout_marginLeft="8dp"
-                    android:padding="8dp"
-                    tools:text="Avinash Muzza"/>
+                    <TextView
+                        android:id="@+id/tv_following"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:text="@{vm.data.following.toString()}"
+                        android:layout_marginLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingLeft="4dp"
+                        android:paddingBottom="4dp"
+                        tools:text="Avinash Muzza"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
-                        android:layout_marginLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="8dp"
                         android:text="Following" />
                 </LinearLayout>
 

@@ -61,9 +61,9 @@ class UsersListActivity : DaggerAppCompatActivity(),
     }
 
     override fun onItemClick(gitUser: GitUser) {
-        /*val intent = Intent(this, UserActivity::class.java).apply {
+        val intent = Intent(this, UserActivity::class.java).apply {
             putExtra(Utils.USER,gitUser)
         }
-        startActivity(intent)*/
+        startActivity(intent)
     }
 }
