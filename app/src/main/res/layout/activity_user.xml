@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.android.sbcasestudy.user.vm.UserViewModel" />
+
+        <variable
+            name="callback"
+            type="com.android.sbcasestudy.base.common.Callback" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tv_login_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:text="@{vm.data.login}"
+                    tools:text="Avinash Muzza"/>
+
+            </RelativeLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?actionBarSize"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp">
+                <ImageView
+                    android:id="@+id/iv_user"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:imageUrl="@{vm.data.avatar_url}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Avinash Muzza"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="8dp"
+                    android:text="@{vm.data.name}"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintStart_toEndOf="@+id/iv_user"
+                    app:layout_constraintTop_toTopOf="@+id/iv_user"
+                    app:layout_constraintBottom_toTopOf="@+id/tv_name2"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_user"/>
+
+                <TextView
+                    android:id="@+id/tv_name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Avinash Muzza"
+                    android:textSize="18sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:text="@{vm.data.login}"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintStart_toStartOf="@+id/tv_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_user"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="10dp"
+                    app:cardBackgroundColor="#F6F7F8"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_user">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_name3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            tools:text="Avinash muzza"
+                            android:textColor="@android:color/black"
+                            android:textAlignment="center"/>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/tv_bio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cv_layout"
+                    tools:text="Avinash"
+                    android:paddingTop="8dp"
+                    android:text="@{vm.data.login}"
+                    android:paddingBottom="8dp"/>
+                
+                <ImageView
+                    android:id="@+id/img_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/ic_company"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_bio"/>
+
+                <TextView
+                    android:id="@+id/tv_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.data.bio}"
+                    app:layout_constraintStart_toEndOf="@+id/img_company"
+                    app:layout_constraintTop_toTopOf="@+id/img_company"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_company"
+                    android:layout_marginLeft="8dp"
+                    tools:text="Avinahs Muzza"/>
+
+                <ImageView
+                    android:id="@+id/img_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/ic_location"
+                    app:layout_constraintTop_toBottomOf="@+id/img_company"/>
+
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/img_location"
+                    app:layout_constraintTop_toTopOf="@+id/img_location"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_location"
+                    android:layout_marginLeft="8dp"
+                    android:text="@{vm.data.location}"
+                    tools:text="Avinahs Muzza"/>
+
+                <ImageView
+                    android:id="@+id/img_link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/ic_link"
+                    app:layout_constraintTop_toBottomOf="@+id/img_location"/>
+
+                <TextView
+                    android:id="@+id/tv_link"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toEndOf="@+id/img_link"
+                    app:layout_constraintTop_toTopOf="@+id/img_link"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_link"
+                    android:layout_marginLeft="8dp"
+                    android:text="@{vm.data.blog}"
+                    tools:text="Avinahs Muzza"/>
+
+                <ImageView
+                    android:id="@+id/img_person"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:src="@drawable/ic_person"
+                    app:layout_constraintTop_toBottomOf="@+id/img_link"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_followers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    app:layout_constraintStart_toEndOf="@+id/img_person"
+                    app:layout_constraintTop_toTopOf="@+id/img_person"
+                    android:orientation="horizontal"
+                    android:onClick="@{() -> callback.invokeUserDetails(vm.data,1)}"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_person">
+
+                <TextView
+                    android:id="@+id/tv_followers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:onClick="@{() -> callback.invokeUserDetails(vm.data,1)}"
+                    app:text="@{vm.data.followers.toString()}"
+                    tools:text="Avinahs Muzza"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="Followers" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/img_dot"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:src="@drawable/ic_dot"
+                    android:layout_marginLeft="8dp"
+                    app:layout_constraintStart_toEndOf="@+id/ll_followers"
+                    app:layout_constraintTop_toTopOf="@+id/img_person"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_person"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?selectableItemBackgroundBorderless"
+                    app:layout_constraintStart_toEndOf="@+id/img_dot"
+                    app:layout_constraintTop_toTopOf="@+id/img_person"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_person"
+                    android:orientation="horizontal"
+                    android:onClick="@{() -> callback.invokeUserDetails(vm.data,2)}">
+
+                <TextView
+                    android:id="@+id/tv_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:text="@{vm.data.following.toString()}"
+                    android:layout_marginLeft="8dp"
+                    android:padding="8dp"
+                    tools:text="Avinash Muzza"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="Following" />
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <ProgressBar
+            app:visibleGone="@{vm.dataLoading}"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress_bar"
+            android:layout_margin="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
