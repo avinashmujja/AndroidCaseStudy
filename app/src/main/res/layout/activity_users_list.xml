@@ -6,7 +6,7 @@
     <data>
     <variable
         name="viewmodel"
-        type="com.android.sbcasestudy.usersList.vm.UserListViewModel" />
+        type="com.android.ghcasestudy.userList.vm.UserListViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
