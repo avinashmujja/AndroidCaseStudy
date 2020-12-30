@@ -51,16 +51,12 @@ class UserDetailsActivity : DaggerAppCompatActivity() {
                 when(selection) {
                     Utils.FOLLOWING -> {
                         gitUser.followers?.let {
-                            if(it > 0) {
                                 startActivity(intent)
-                            }
                         }
                     }
                     Utils.FOLLOWERS -> {
                         gitUser.following?.let {
-                            if(it > 0) {
                                 startActivity(intent)
-                            }
                         }
                     }
                 }
