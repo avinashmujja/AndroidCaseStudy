@@ -1,8 +1,9 @@
 package com.android.ghcasestudy.userStats.view
 
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.ghcasestudy.R
@@ -12,26 +13,19 @@ import com.android.ghcasestudy.data.entities.GitUser
 import com.android.ghcasestudy.databinding.ActivityUsersDetailsBinding
 import com.android.ghcasestudy.userStats.vm.UserStatsViewModel
 import com.android.ghcasestudy.utils.Utils
-import dagger.android.support.DaggerAppCompatActivity
-import javax.inject.Inject
 
-class UserStatsActivity : DaggerAppCompatActivity() ,
+class UserStatsActivity : AppCompatActivity(),
     itemClick {
-
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var viewDataBinding: ActivityUsersDetailsBinding
 
     lateinit var adapter: UsersCommonAdapter
 
-    var selection : Int = 0
+    var selection: Int = 0
 
-    var gitUser : GitUser? = null
+    var gitUser: GitUser? = null
 
-    private val userDetailsViewModel : UserStatsViewModel by lazy {
-        viewModelFactory.create(UserStatsViewModel::class.java)
-    }
+    private val userDetailsViewModel: UserStatsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

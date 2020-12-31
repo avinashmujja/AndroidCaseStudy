@@ -2,15 +2,11 @@ package com.android.ghcasestudy.data.entities
 
 import android.os.Parcel
 import android.os.Parcelable
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "git_user")
 data class  GitUser constructor(@SerializedName("login")
                                    @Expose
-                                   @PrimaryKey
                                    val login : String,
                                @SerializedName("id")
                                    @Expose

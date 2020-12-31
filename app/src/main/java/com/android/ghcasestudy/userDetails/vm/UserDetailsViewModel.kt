@@ -1,6 +1,7 @@
 package com.android.ghcasestudy.userDetails.vm
 
 import androidx.databinding.ObservableField
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,11 +9,9 @@ import androidx.lifecycle.viewModelScope
 import com.android.ghcasestudy.data.entities.GitUser
 import com.android.ghcasestudy.userDetails.usecases.UserDetailUsecase
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class UserDetailsViewModel @Inject constructor(private val userUsecase:
-                                               UserDetailUsecase
-) : ViewModel() {
+class UserDetailsViewModel @ViewModelInject
+constructor(private val userUsecase: UserDetailUsecase) : ViewModel() {
 
     val data: ObservableField<GitUser> = ObservableField()
 

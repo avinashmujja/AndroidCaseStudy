@@ -1,32 +1,26 @@
 
 package com.android.ghcasestudy.userStats
 
-import androidx.lifecycle.ViewModel
-import com.android.ghcasestudy.userStats.usecases.UserDetailsUsecase
-import com.android.ghcasestudy.userStats.usecases.UserDetailsUsecaseImpl
-import com.android.ghcasestudy.factory.ViewModelBuilder
-import com.android.ghcasestudy.factory.ViewModelKey
+/*import com.android.ghcasestudy.factory.ViewModelKey*/
 import com.android.ghcasestudy.userStats.repository.UserFollowersRepository
 import com.android.ghcasestudy.userStats.repository.UserFollowersRepositoryImpl
 import com.android.ghcasestudy.userStats.repository.UserFollowingRepository
 import com.android.ghcasestudy.userStats.repository.UserFollowingRepositoryImpl
-import com.android.ghcasestudy.userStats.view.UserStatsActivity
-import com.android.ghcasestudy.userStats.vm.UserStatsViewModel
+import com.android.ghcasestudy.userStats.usecases.UserDetailsUsecase
+import com.android.ghcasestudy.userStats.usecases.UserDetailsUsecaseImpl
 import dagger.Binds
 import dagger.Module
-import dagger.android.ContributesAndroidInjector
-import dagger.multibindings.IntoMap
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 
+@InstallIn(ActivityComponent::class)
 @Module
 abstract class UserStatsModule {
 
-    @ContributesAndroidInjector(modules = [ViewModelBuilder::class])
-    internal abstract fun userActivity(): UserStatsActivity
-
-    @Binds
+    /*@Binds
     @IntoMap
     @ViewModelKey(UserStatsViewModel::class)
-    abstract fun bindUserViewModel(viewmodel: UserStatsViewModel): ViewModel
+    abstract fun bindUserViewModel(viewmodel: UserStatsViewModel): ViewModel*/
 
     @Binds
     abstract fun bindUserDetailsUsecase(userDetailsUsecaseImpl:
