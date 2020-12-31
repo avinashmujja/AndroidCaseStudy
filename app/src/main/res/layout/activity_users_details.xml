@@ -7,11 +7,11 @@
 
         <variable
             name="user"
-            type="com.android.sbcasestudy.data.GitUser" />
+            type="com.android.ghcasestudy.data.entities.GitUser" />
 
     <variable
         name="viewmodel"
-        type="com.android.sbcasestudy.userDetails.vm.UserDetailsViewModel" />
+        type="com.android.ghcasestudy.userStats.vm.UserStatsViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

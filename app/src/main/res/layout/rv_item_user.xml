@@ -7,7 +7,7 @@
 
         <variable
             name="userItem"
-            type="com.android.sbcasestudy.data.GitUser" />
+            type="com.android.ghcasestudy.data.entities.GitUser" />
     </data>
 
     <androidx.cardview.widget.CardView

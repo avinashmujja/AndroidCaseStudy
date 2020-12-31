@@ -7,11 +7,11 @@
 
         <variable
             name="vm"
-            type="com.android.sbcasestudy.user.vm.UserViewModel" />
+            type="com.android.ghcasestudy.userDetails.vm.UserDetailsViewModel" />
 
         <variable
             name="callback"
-            type="com.android.sbcasestudy.base.common.Callback" />
+            type="com.android.ghcasestudy.common.Callback" />
 
 
     </data>
