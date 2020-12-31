@@ -1,4 +1,4 @@
-# MVVM Clean Architecture, Dagger2, Databinding, room db using kotlin
+# MVVM Clean Architecture, DaggerHilt, Databinding using kotlin
 
 Github apis are limited to use for daily use, please take a note on this
 
