@@ -6,12 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.ghcasestudy.data.entities.GitUser
-import com.android.ghcasestudy.domain.UserDetailUsecase
+import com.android.ghcasestudy.userDetails.usecases.UserDetailUsecase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class UserDetailsViewModel @Inject constructor(private val userUsecase:
-                                               UserDetailUsecase) : ViewModel() {
+                                               UserDetailUsecase
+) : ViewModel() {
 
     val data: ObservableField<GitUser> = ObservableField()
 

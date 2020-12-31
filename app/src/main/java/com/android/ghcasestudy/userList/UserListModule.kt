@@ -2,18 +2,12 @@
 package com.android.ghcasestudy.userList
 
 import androidx.lifecycle.ViewModel
-import com.android.ghcasestudy.data.source.local.repository.UpdateUserListLocalRepository
-import com.android.ghcasestudy.data.source.local.repository.UpdateUserListLocalRepositoryImpl
-import com.android.ghcasestudy.data.source.local.repository.UserListLocalRepository
-import com.android.ghcasestudy.data.source.local.repository.UserListLocalRepositoryImpl
-import com.android.ghcasestudy.data.source.network.repository.UserListRepository
-import com.android.ghcasestudy.data.source.network.repository.UserListRepositoryImpl
-import com.android.ghcasestudy.domain.SaveUserListUsecase
-import com.android.ghcasestudy.domain.SaveUserListUsecaseImpl
-import com.android.ghcasestudy.domain.UsersListUsecase
-import com.android.ghcasestudy.domain.UsersListUsecaseImpl
+import com.android.ghcasestudy.userList.repository.UserListRepositoryImpl
+import com.android.ghcasestudy.userList.usecases.UsersListUsecase
+import com.android.ghcasestudy.userList.usecases.UsersListUsecaseImpl
 import com.android.ghcasestudy.factory.ViewModelBuilder
 import com.android.ghcasestudy.factory.ViewModelKey
+import com.android.ghcasestudy.userList.repository.UserListRepository
 import com.android.ghcasestudy.userList.view.UserListActivity
 import com.android.ghcasestudy.userList.vm.UserListViewModel
 import dagger.Binds
@@ -34,22 +28,11 @@ abstract class UserListModule {
 
     @Binds
     abstract fun bindUserListUsecase(usersListUsecaseImpl:
-                                     UsersListUsecaseImpl) : UsersListUsecase
-
-    @Binds
-    abstract fun bindUserListLocalRepository(userListLocalRepositoryImpl:
-                                             UserListLocalRepositoryImpl) : UserListLocalRepository
+                                     UsersListUsecaseImpl
+    ) : UsersListUsecase
 
     @Binds
     abstract fun bindUserListRepository(userListRepositoryImpl:
-                                        UserListRepositoryImpl) : UserListRepository
-
-    @Binds
-    abstract fun bindupdateUserListLocalRepository(
-        updateUserListLocalRepositoryImpl: UpdateUserListLocalRepositoryImpl) :
-            UpdateUserListLocalRepository
-
-    @Binds
-    abstract fun bindSaveUserListUsecase(
-        saveUserListUsecaseImpl: SaveUserListUsecaseImpl) : SaveUserListUsecase
+                                        UserListRepositoryImpl
+    ) : UserListRepository
 }

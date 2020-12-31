@@ -1,10 +1,10 @@
 package com.android.ghcasestudy.userDetails
 
 import androidx.lifecycle.ViewModel
-import com.android.ghcasestudy.data.source.network.repository.UserDetailRepository
-import com.android.ghcasestudy.data.source.network.repository.UserDetailRepositoryImpl
-import com.android.ghcasestudy.domain.UserDetailUsecase
-import com.android.ghcasestudy.domain.UserDetailUsecaseImpl
+import com.android.ghcasestudy.userDetails.repository.UserDetailRepository
+import com.android.ghcasestudy.userDetails.repository.UserDetailRepositoryImpl
+import com.android.ghcasestudy.userDetails.usecases.UserDetailUsecase
+import com.android.ghcasestudy.userDetails.usecases.UserDetailUsecaseImpl
 import com.android.ghcasestudy.factory.ViewModelBuilder
 import com.android.ghcasestudy.factory.ViewModelKey
 import com.android.ghcasestudy.userDetails.view.UserDetailsActivity

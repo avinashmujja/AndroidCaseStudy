@@ -1,8 +1,8 @@
-package com.android.ghcasestudy.domain
+package com.android.ghcasestudy.userStats.usecases
 
 import com.android.ghcasestudy.data.entities.GitUser
-import com.android.ghcasestudy.data.source.network.repository.UserFollowingRepository
-import com.android.ghcasestudy.data.source.network.repository.UserFollowersRepository
+import com.android.ghcasestudy.userStats.repository.UserFollowingRepository
+import com.android.ghcasestudy.userStats.repository.UserFollowersRepository
 import com.android.ghcasestudy.utils.Utils
 import javax.inject.Inject
 
@@ -13,7 +13,8 @@ interface UserDetailsUsecase {
 
 class UserDetailsUsecaseImpl @Inject
 constructor(private val userFollowingRepository: UserFollowingRepository,
-            private val userFollwersRepository: UserFollowersRepository) : UserDetailsUsecase {
+            private val userFollwersRepository: UserFollowersRepository
+) : UserDetailsUsecase {
 
     override suspend fun invokeUserDetailsByName(
         pageNumber: Int,

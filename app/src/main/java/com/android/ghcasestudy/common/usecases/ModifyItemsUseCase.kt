@@ -1,4 +1,4 @@
-package com.android.ghcasestudy.domain
+package com.android.ghcasestudy.common.usecases
 
 import com.android.ghcasestudy.data.entities.GitUser
 import javax.inject.Inject

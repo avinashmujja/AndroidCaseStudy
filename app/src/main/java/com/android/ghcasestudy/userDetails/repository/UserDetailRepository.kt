@@ -1,10 +1,9 @@
-package com.android.ghcasestudy.data.source.network.repository
+package com.android.ghcasestudy.userDetails.repository
 
 import com.android.ghcasestudy.data.GithubAPI
 import com.android.ghcasestudy.data.entities.GitUser
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import okhttp3.Dispatcher
 import javax.inject.Inject
 
 interface UserDetailRepository {

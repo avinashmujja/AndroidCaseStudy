@@ -6,16 +6,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.ghcasestudy.data.entities.GitUser
-import com.android.ghcasestudy.domain.ModifyItemsUseCase
-import com.android.ghcasestudy.domain.SaveUserListUsecase
-import com.android.ghcasestudy.domain.UsersListUsecase
+import com.android.ghcasestudy.common.usecases.ModifyItemsUseCase
+import com.android.ghcasestudy.userList.usecases.UsersListUsecase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class UserListViewModel @Inject
 constructor(private val usersListUsecase : UsersListUsecase,
-            private val modifyItemsUseCase: ModifyItemsUseCase,
-            private val saveUserListUsecase: SaveUserListUsecase
+            private val modifyItemsUseCase: ModifyItemsUseCase
 ) : ViewModel() {
 
     private val _items = MutableLiveData<MutableList<GitUser>>().apply { value = mutableListOf() }
@@ -45,7 +43,6 @@ constructor(private val usersListUsecase : UsersListUsecase,
                 userList?.let {
                     _isItemsNotFound.value = false
                     lastItemSince = it.nextBatchId
-                    saveUserListUsecase.saveUserList(it.gitUser)
                     isLoadMore.set(true)
                     _items.postValue(modifyItemsUseCase.invoke(_items.value!!,
                         it.gitUser.toMutableList()
@@ -72,7 +69,6 @@ constructor(private val usersListUsecase : UsersListUsecase,
                 val userList = usersListUsecase.invoke(lastItemSince,false)
                 userList?.let {
                     lastItemSince = it.nextBatchId
-                    saveUserListUsecase.saveUserList(it.gitUser)
                     isLoadMore.set(true)
                     _items.postValue(modifyItemsUseCase.invoke(_items.value!!,
                         it.gitUser.toMutableList()))
