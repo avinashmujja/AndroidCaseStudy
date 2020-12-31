@@ -1,8 +1,7 @@
-package com.android.ghcasestudy.data.source.network.repository
+package com.android.ghcasestudy.userList.repository
 
 import com.android.ghcasestudy.data.GithubAPI
 import com.android.ghcasestudy.data.entities.GitUser
-import com.android.ghcasestudy.utils.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject

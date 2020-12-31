@@ -1,4 +1,4 @@
-package com.android.ghcasestudy.data.source.network.repository
+package com.android.ghcasestudy.userStats.repository
 
 import com.android.ghcasestudy.data.GithubAPI
 import com.android.ghcasestudy.data.entities.GitUser
@@ -7,17 +7,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-interface UserFollowersRepository {
+interface UserFollowingRepository {
     suspend fun invoke(loginName: String,
                        per_page : Int,
                        page : Int) : List<GitUser>
 }
 
-class UserFollowersRepositoryImpl @Inject
-constructor(private val githubAPI: GithubAPI) : UserFollowersRepository {
+class UserFollowingRepositoryImpl @Inject
+constructor(private val githubAPI: GithubAPI) : UserFollowingRepository {
     override suspend fun invoke(loginName: String, per_page: Int, page: Int):
             List<GitUser> = withContext(Dispatchers.Default) {
-        return@withContext githubAPI.getUserFollowersList(loginName, Utils.PER_PAGE_COUNT, page)
+        return@withContext githubAPI.getUserFollowingList(loginName, Utils.PER_PAGE_COUNT, page)
     }
 
 }

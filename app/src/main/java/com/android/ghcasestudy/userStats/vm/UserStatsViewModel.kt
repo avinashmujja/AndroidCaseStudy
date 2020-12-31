@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.android.ghcasestudy.data.entities.GitUser
-import com.android.ghcasestudy.domain.ModifyItemsUseCase
-import com.android.ghcasestudy.domain.UserDetailsUsecase
+import com.android.ghcasestudy.common.usecases.ModifyItemsUseCase
+import com.android.ghcasestudy.userStats.usecases.UserDetailsUsecase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

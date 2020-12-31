@@ -15,7 +15,7 @@ import javax.inject.Singleton
     AndroidSupportInjectionModule::class,
     UserListModule::class, UserStatsModule::class,
     UserDetailsModule::class,AppModule::class,
-    DatabaseModule::class, CommonUseCaseModule::class ])
+    CommonUseCaseModule::class ])
 interface ApplicationComponent : AndroidInjector<DaggerApplication> {
     @Component.Factory
     interface Factory {

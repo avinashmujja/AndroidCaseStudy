@@ -2,11 +2,14 @@
 package com.android.ghcasestudy.userStats
 
 import androidx.lifecycle.ViewModel
-import com.android.ghcasestudy.data.source.network.repository.*
-import com.android.ghcasestudy.domain.UserDetailsUsecase
-import com.android.ghcasestudy.domain.UserDetailsUsecaseImpl
+import com.android.ghcasestudy.userStats.usecases.UserDetailsUsecase
+import com.android.ghcasestudy.userStats.usecases.UserDetailsUsecaseImpl
 import com.android.ghcasestudy.factory.ViewModelBuilder
 import com.android.ghcasestudy.factory.ViewModelKey
+import com.android.ghcasestudy.userStats.repository.UserFollowersRepository
+import com.android.ghcasestudy.userStats.repository.UserFollowersRepositoryImpl
+import com.android.ghcasestudy.userStats.repository.UserFollowingRepository
+import com.android.ghcasestudy.userStats.repository.UserFollowingRepositoryImpl
 import com.android.ghcasestudy.userStats.view.UserStatsActivity
 import com.android.ghcasestudy.userStats.vm.UserStatsViewModel
 import dagger.Binds
@@ -27,14 +30,17 @@ abstract class UserStatsModule {
 
     @Binds
     abstract fun bindUserDetailsUsecase(userDetailsUsecaseImpl:
-                                              UserDetailsUsecaseImpl) : UserDetailsUsecase
+                                        UserDetailsUsecaseImpl
+    ) : UserDetailsUsecase
 
     @Binds
     abstract fun bindUserFollowingRepository(
-        userFollowingRepositoryImpl: UserFollowingRepositoryImpl) : UserFollowingRepository
+        userFollowingRepositoryImpl: UserFollowingRepositoryImpl
+    ) : UserFollowingRepository
 
     @Binds
     abstract fun bindUserFollowersRepository(
-        userFollowersRepositoryImpl: UserFollowersRepositoryImpl) : UserFollowersRepository
+        userFollowersRepositoryImpl: UserFollowersRepositoryImpl
+    ) : UserFollowersRepository
 
 }

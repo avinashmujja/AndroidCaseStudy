@@ -1,7 +1,7 @@
-package com.android.ghcasestudy.domain
+package com.android.ghcasestudy.userDetails.usecases
 
 import com.android.ghcasestudy.data.entities.GitUser
-import com.android.ghcasestudy.data.source.network.repository.UserDetailRepository
+import com.android.ghcasestudy.userDetails.repository.UserDetailRepository
 import javax.inject.Inject
 
 interface UserDetailUsecase {
@@ -9,7 +9,7 @@ interface UserDetailUsecase {
 }
 
 class UserDetailUsecaseImpl @Inject
-constructor(private val userDetailRepository: UserDetailRepository) : UserDetailUsecase{
+constructor(private val userDetailRepository: UserDetailRepository) : UserDetailUsecase {
 
     override suspend fun invoke(loginName: String) : GitUser {
         return userDetailRepository.invokeUserDetailsByLoginName(loginName)

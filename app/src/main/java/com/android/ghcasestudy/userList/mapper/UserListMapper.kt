@@ -1,4 +1,4 @@
-package com.android.ghcasestudy.mapper
+package com.android.ghcasestudy.userList.mapper
 
 import com.android.ghcasestudy.data.entities.GitUser
 import com.android.ghcasestudy.data.entities.UserItem
