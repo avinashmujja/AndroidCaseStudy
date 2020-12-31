@@ -2,8 +2,9 @@ package com.android.ghcasestudy.userList.view
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.ghcasestudy.R
@@ -14,21 +15,17 @@ import com.android.ghcasestudy.databinding.ActivityUsersListBinding
 import com.android.ghcasestudy.userDetails.view.UserDetailsActivity
 import com.android.ghcasestudy.userList.vm.UserListViewModel
 import com.android.ghcasestudy.utils.Utils
-import dagger.android.support.DaggerAppCompatActivity
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
-class UserListActivity : DaggerAppCompatActivity(),
+@AndroidEntryPoint
+class UserListActivity : AppCompatActivity(),
     itemClick {
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var viewDataBinding: ActivityUsersListBinding
 
     lateinit var adapter: UsersCommonAdapter
 
-    private val userListViewModel : UserListViewModel by lazy {
-        viewModelFactory.create(UserListViewModel::class.java)
-    }
+    val userListViewModel: UserListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

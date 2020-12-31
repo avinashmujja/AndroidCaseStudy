@@ -1,19 +1,20 @@
 package com.android.ghcasestudy.userList.vm
 
 import androidx.databinding.ObservableField
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.android.ghcasestudy.data.entities.GitUser
 import com.android.ghcasestudy.common.usecases.ModifyItemsUseCase
+import com.android.ghcasestudy.data.entities.GitUser
 import com.android.ghcasestudy.userList.usecases.UsersListUsecase
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class UserListViewModel @Inject
-constructor(private val usersListUsecase : UsersListUsecase,
-            private val modifyItemsUseCase: ModifyItemsUseCase
+class UserListViewModel @ViewModelInject
+constructor(
+    private val usersListUsecase: UsersListUsecase,
+    private val modifyItemsUseCase: ModifyItemsUseCase
 ) : ViewModel() {
 
     private val _items = MutableLiveData<MutableList<GitUser>>().apply { value = mutableListOf() }

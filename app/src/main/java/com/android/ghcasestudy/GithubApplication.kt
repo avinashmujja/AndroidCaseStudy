@@ -1,12 +1,13 @@
 package com.android.ghcasestudy
 
-import com.android.ghcasestudy.di.DaggerApplicationComponent
-import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class GithubApplication : DaggerApplication() {
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerApplicationComponent.factory().create(this)
+@HiltAndroidApp
+class GithubApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
     }
 
 }

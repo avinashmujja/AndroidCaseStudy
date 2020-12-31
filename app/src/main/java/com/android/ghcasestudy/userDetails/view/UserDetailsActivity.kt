@@ -2,8 +2,9 @@ package com.android.ghcasestudy.userDetails.view
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.android.ghcasestudy.R
 import com.android.ghcasestudy.common.Callback
 import com.android.ghcasestudy.data.entities.GitUser
@@ -11,20 +12,16 @@ import com.android.ghcasestudy.databinding.ActivityUserBinding
 import com.android.ghcasestudy.userDetails.vm.UserDetailsViewModel
 import com.android.ghcasestudy.userStats.view.UserStatsActivity
 import com.android.ghcasestudy.utils.Utils
-import dagger.android.support.DaggerAppCompatActivity
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
-class UserDetailsActivity : DaggerAppCompatActivity() {
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+@AndroidEntryPoint
+class UserDetailsActivity : AppCompatActivity() {
 
     private lateinit var viewDataBinding: ActivityUserBinding
 
     var gitUser: GitUser? = null
 
-    private val userViewModel : UserDetailsViewModel by lazy {
-        viewModelFactory.create(UserDetailsViewModel::class.java)
-    }
+    private val userViewModel: UserDetailsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
